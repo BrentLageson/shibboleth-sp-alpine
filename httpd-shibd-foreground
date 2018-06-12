@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Apache and Shibd gets grumpy about PID files pre-existing from previous runs
+rm -f /run/apache2/httpd.pid /var/lock/subsys/shibd /var/run/shibboleth/shibd.pid 2>/dev/null
+
+# Start Shibd
+/etc/shibboleth/sbin/shibd -f
+
+# Start httpd
+exec httpd -D FOREGROUND
