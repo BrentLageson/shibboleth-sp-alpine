@@ -16,7 +16,9 @@ You can customize several behaviours looking at Shibboleth documentation and fin
 * _/var/www/html_ : base path for free access html pages
 * _/var/www/html/secure_ : base path for secured part of the site you want to protect.
  
-
+# Disclaimer
+I've successfully customized a SAML 2.0 SP provider, customizing both Apache and Shibboleth to fit my requirements, being able to do 
+ a SSO and SLO against a Shibboleth IDP. I haven't used this image for professional purposes. 
 
  
  
