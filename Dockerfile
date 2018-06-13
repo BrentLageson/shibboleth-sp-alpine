@@ -27,9 +27,9 @@ COPY /httpd/* /tmp/
 
 RUN set -ex && \
     apk add --update --no-cache bash apache2 apache2-ssl libstdc++ curl su-exec && \
-    mkdir -p /etc/shibboleth/metadata /etc/shibboleth/etc/shibboleth/ /etc/apache2/conf.d /run/apache2  /etc/shibboleth/lib /var/www/html /tmp/log4shib /tmp/xerces /tmp/xml-security-c  /tmp/xmltooling /tmp/opensaml && \
+    mkdir -p /etc/shibboleth/metadata /etc/shibboleth/ /etc/apache2/conf.d /run/apache2  /etc/shibboleth/lib /var/www/html /tmp/log4shib /tmp/xerces /tmp/xml-security-c  /tmp/xmltooling /tmp/opensaml && \
     mv /tmp/httpd-shibd-foreground /usr/local/bin && \
-    mv /tmp/*.logger /etc/shibboleth/etc/shibboleth && \
+    mv /tmp/*.logger /etc/shibboleth && \
     mv /tmp/httpd.conf /etc/apache2 && \
     mv /tmp/ssl.conf /etc/apache2/conf.d && \
     mv /tmp/shibd.sh /etc/shibboleth && \
@@ -113,7 +113,7 @@ RUN set -ex && \
          ./configure \
                 -q \
                 --with-log4shib=/etc/shibboleth \
-                --prefix=/etc/shibboleth \
+                --prefix=/ \
                 --exec-prefix=/etc/shibboleth \
                 -C && \
     make -s &&  make install -s && \
